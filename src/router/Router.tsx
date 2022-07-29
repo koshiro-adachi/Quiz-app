@@ -16,7 +16,11 @@ export const Router: FC = memo(() => {
           render={({ match: { url } }) => (
             <Switch>
               {questionRoutes.map((route) => (
-                <Route path={`${url}${route.path}`} exact={route.exact}>
+                <Route
+                  path={`${url}${route.path}`}
+                  exact={route.exact}
+                  key={route.path}
+                >
                   {route.children}
                 </Route>
               ))}
