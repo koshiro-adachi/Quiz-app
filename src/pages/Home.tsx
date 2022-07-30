@@ -26,7 +26,7 @@ export const Home: FC = memo(() => {
           />
           <PrimaryButton
             onClick={onClickQuestionPage}
-            disabled={userName === ""}
+            disabled={userName === undefined || userName === ""}
           >
             名前を登録
           </PrimaryButton>
