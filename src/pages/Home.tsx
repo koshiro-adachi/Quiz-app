@@ -8,10 +8,10 @@ import { NameContext } from "../privider/UserNameContext";
 export const Home: FC = memo(() => {
   const { userName, setUserName } = useContext(NameContext);
   const history = useHistory();
+
   const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) =>
     setUserName(e.target.value);
-  const onClickQuestionPage = () =>
-    history.push({ pathname: "/question", state: userName });
+  const onClickQuestionPage = () => history.push("/question");
   return (
     <Flex align="center" justify="center" height="100vh">
       <Box bg="blue.100" borderRadius="md" shadow="md" w="sm" p={8}>

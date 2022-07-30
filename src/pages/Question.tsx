@@ -1,7 +1,8 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import { FC, memo } from "react";
+import { FC, memo, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { AnswerButton } from "../atom/button/AnswerButton";
+import { NameContext } from "../privider/UserNameContext";
 
 export const Question: FC = memo(() => {
   const history = useHistory();
@@ -11,6 +12,7 @@ export const Question: FC = memo(() => {
   const onClickBubuPage = () => {
     history.push("/question/bubu");
   };
+  const { userName } = useContext(NameContext);
 
   return (
     <Flex bg="blue.200" height="100vh" m={4} borderRadius="20" justify="center">
@@ -30,7 +32,7 @@ export const Question: FC = memo(() => {
           textAlign="center"
         >
           <Box pt="10vh">
-            さんに問題です。
+            {userName}さんに問題です。
             <br />
             Q.プログラミングは楽しいか否か？
             <Flex justify="space-around" mt="20vh">
