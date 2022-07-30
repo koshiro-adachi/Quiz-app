@@ -11,6 +11,7 @@ export const Question: FC = memo(() => {
   const onClickBubuPage = () => {
     history.push("/question/bubu");
   };
+
   return (
     <Flex bg="blue.200" height="100vh" m={4} borderRadius="20" justify="center">
       <Box>
@@ -29,7 +30,7 @@ export const Question: FC = memo(() => {
           textAlign="center"
         >
           <Box pt="10vh">
-            OOさんに問題です。
+            さんに問題です。
             <br />
             Q.プログラミングは楽しいか否か？
             <Flex justify="space-around" mt="20vh">

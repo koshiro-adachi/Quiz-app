@@ -1,15 +1,17 @@
 import { Box, Flex, Heading, Input } from "@chakra-ui/react";
-import { ChangeEvent, FC, memo, useState } from "react";
+import { ChangeEvent, FC, memo, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { PrimaryButton } from "../atom/button/PrimaryButton";
+import { NameContext } from "../privider/UserNameContext";
 
 export const Home: FC = memo(() => {
-  const [userName, setUserName] = useState("");
+  const { userName, setUserName } = useContext(NameContext);
   const history = useHistory();
   const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) =>
     setUserName(e.target.value);
-  const onClickQuestionPage = () => history.push("/question");
+  const onClickQuestionPage = () =>
+    history.push({ pathname: "/question", state: userName });
   return (
     <Flex align="center" justify="center" height="100vh">
       <Box bg="blue.100" borderRadius="md" shadow="md" w="sm" p={8}>
